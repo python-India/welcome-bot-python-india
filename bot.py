@@ -17,7 +17,7 @@ def welcomemessage(bot, update):
     msg = update.message
     # Google Sheets to get the previous Welcome message ID and update it with new message ID
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(r"E:\projects\PythonIndia\pythonindiagooglesheets.json", scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(r"pythonindiagooglesheets.json", scope)
     gc = gspread.authorize(credentials)
     wks = gc.open("Python India Welcome Message ID ").sheet1
     msg_id = int(wks.get_all_values()[0][0]) # Previous Welcome Message message ID
